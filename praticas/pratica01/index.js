@@ -5,7 +5,7 @@ import {
     adicionarTarefa,
     removerTarefa,
     modificarTarefa,
-} from "./tarefas";
+} from "./tarefas.js";
 
 function exibirMenu() {
     console.log("MENU PRINCIPAL");
@@ -64,7 +64,7 @@ function main() {
     while(true) {
         exibirMenu();
 
-        const opcao = readline.question("Escolha uma opção: ");
+        const opcao = readline.question("Escolha uma opcao: ");
 
         escolherOpcao(opcao);
     }
