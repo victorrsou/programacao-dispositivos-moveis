@@ -61,7 +61,7 @@ function escolherOpcao(opcao) {
 }
 
 function main() {
-    white(true) {
+    while(true) {
         exibirMenu();
 
         const opcao = readline.question("Escolha uma opção: ");
