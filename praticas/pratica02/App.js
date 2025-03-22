@@ -21,7 +21,6 @@ function App() {
           height: 50,
           backgroundColor: "#333",
           justifyContent: "center",
-          paddingLeft: 16,
       },
       title: {
           fontSize: 20,
