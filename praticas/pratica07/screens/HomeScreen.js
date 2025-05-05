@@ -1,4 +1,5 @@
 import { View, StyleSheet } from "react-native";
+import { TextInput, Text, Button } from "react-native-paper";
 
 function HomeScreen({navigation}) {
     return (

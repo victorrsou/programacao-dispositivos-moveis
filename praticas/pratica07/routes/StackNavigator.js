@@ -6,10 +6,10 @@ const Stack = createNativeStackNavigator();
 
 function StackNavigator() {
     return (
-        <StackNavigator intialRouteName="Login">
-            <Stack.screen name="Login" component={LoginScreen} />
-            <Stack.screen name="RecuperarSenha" component={RecoverScreen} />
-        </StackNavigator>
+        <Stack.Navigator intialRouteName="Login">
+            <Stack.Screen name="Login" component={LoginScreen} />
+            <Stack.Screen name="RecuperarSenha" component={RecoverScreen} />
+        </Stack.Navigator>
     )
 }
 

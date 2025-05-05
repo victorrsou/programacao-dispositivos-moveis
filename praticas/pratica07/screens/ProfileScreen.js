@@ -1,5 +1,5 @@
-import { View, Image, StyleSheet } from "react-native";
-import { Button } from "react-native-paper";
+import { View, StyleSheet, Image} from "react-native";
+import { TextInput, Text, Button } from "react-native-paper";
 
 function ProfileScreen({navigation}) {
     return (

@@ -1,4 +1,5 @@
-import { TextInput, View } from "react-native";
+import { View } from "react-native";
+import { TextInput, Text, Button } from "react-native-paper";
 
 function LoginScreen ({ navigation }) {
     return (
