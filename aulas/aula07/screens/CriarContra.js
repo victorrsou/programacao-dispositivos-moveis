@@ -1,7 +1,5 @@
 function CriarConta() {
-    return (
-        <></>
-    )
+    return <></>;
 }
 
 export default CriarConta;
