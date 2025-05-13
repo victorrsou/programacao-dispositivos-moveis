@@ -1,37 +1,49 @@
 import { useState } from "react";
 import { View } from "react-native";
 import { TextInput, Button, HelperText } from "react-native-paper";
+import * as Yup from "yup";
+
 
 function RedefinirSenha() {
+  const schema = Yup.object().shape({
+    email: Yup.string().required("E-mail é obrigatório").email("E-mail inválido")
+  });  
   const [email, setEmail] = useState("");
   const [erro, setErro] = useState("");
 
-  const validaEmail = () => {
-    if (!email) {
-      setErro("E-mail é obrigatorio");
-      return false;
+//   const validaEmail = () => {
+//     if (!email) {
+//       setErro("E-mail é obrigatorio");
+//       return false;
+//     }
+
+//     if (!email.includes("@")) {
+//       setErro("E-mail inválido");
+//       return false;
+//     }
+
+//     return true;
+//   };
+
+  const trataTexto = async (texto) => {
+    try {
+        setEmail(texto);
+        await schema.validate({ email: texto });
+        setErro("");
+    } catch(err) {
+        setErro(err.errors);
     }
-
-    if (!email.includes("@")) {
-      setErro("E-mail inválido");
-      return false;
-    }
-
-    return true;
-  };
-
-  const trataTexto = (texto) => {
-    setEmail(texto);
-    validaEmail();
   }
 
-  const trataEnviar = () => {
-    if (!validaEmail()) {
-      return;
+  const trataEnviar = async () => {
+    try {
+        await schema.validate({ email });
+        setErro("");
+        setEmail("");
+        alert("E-mail enviado!")
+    } catch (err) {
+        setErro(err.errors)
     }
-    setEmail("");
-    setErro("");
-    alert("E-mail enviado!");
   };
 
   return (
