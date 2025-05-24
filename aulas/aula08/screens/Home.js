@@ -1,16 +1,37 @@
-import { View } from "react-native";
-import ListaVertical 
-from "../components/ListaVertical";
-import ListaHorizontal
-from "../components/ListaHorizontal";
+import { useContext, useEffect } from "react";
+import { View, ActivityIndicator } from "react-native";
+
+import { LojaContext } from "../contexts/LojaContext";
+import ListaVertical from "../components/ListaVertical";
+import ListaHorizontal from "../components/ListaHorizontal";
 
 function Home() {
-  return (
-    <View style={{ flex: 1, padding: 16 }}>
-      <ListaHorizontal />  
-      <ListaVertical />
-    </View>
-  );
+    const { carregando, carregarDados } = useContext(LojaContext);
+
+    useEffect(() => {
+        carregarDados();
+    }, []);
+
+    return (
+        <View style={{ flex: 1, padding: 16 }}>
+            {carregando ? (
+                <View
+                    style={{
+                        flex: 1,
+                        justifyContent: "center",
+                        alignItems: "center",
+                    }}
+                >
+                    <ActivityIndicator size={50} />
+                </View>
+            ) : (
+                <>
+                    <ListaHorizontal />
+                    <ListaVertical />
+                </>
+            )}
+        </View>
+    );
 }
 
 export default Home;
