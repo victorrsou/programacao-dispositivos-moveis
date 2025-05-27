@@ -4,7 +4,7 @@ import { useContext } from "react";
 
 import { StoreContext } from "../contexts/StoreContext";
 
-function CategoryItem({ item }) {
+function CategoryItem() {
     const { categories } = useContext(StoreContext);
 
     return (

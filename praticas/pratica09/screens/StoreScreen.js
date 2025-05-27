@@ -5,13 +5,13 @@ import { Searchbar } from "react-native-paper";
 import { StoreContext } from "../contexts/StoreContext";
 import StoreItem from "../components/StoreItem";
 
-function StoreScreen(route) {
+function StoreScreen({route}) {
     const { categoria } = route.params;
     const { loading, searchStore } = useContext(StoreContext);
     const [filter, setFilter] = useState("");
 
     useEffect(() => {
-        searchStore(categoria);
+        searchStore(categoria, "");
     }, []);
 
     return (

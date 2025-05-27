@@ -5,7 +5,7 @@ import { Button, Text } from "react-native-paper";
 
 import { StoreContext } from "../contexts/StoreContext";
 
-function CategoryGrid({item}) {
+function CategoryGrid() {
     const { categories } = useContext(StoreContext);
     const navigation = useNavigation();
 
@@ -21,8 +21,10 @@ function CategoryGrid({item}) {
                         <Button
                             mode="outlined"
                             icon={item.icone}
-                            onPress={() => navigation.navigate("Search", { categoria: item.nome })
-                        } />
+                            onPress={() => navigation.navigate("Lojas", { categoria: item.nome })
+                        } >
+                            { item.nome}
+                        </Button>
                     </View>
                 )}
                 keyExtractor={(item, index) => `categoria-${index}`}

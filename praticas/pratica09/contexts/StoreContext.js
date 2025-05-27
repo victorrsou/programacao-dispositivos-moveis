@@ -105,11 +105,12 @@ function StoreProvider({ children }) {
         setTimeout(() => {
             const result = storeData.filter(
                 (store) =>
-                    (store.categoria === categoryName &&
-                        store.nome
+                    (store.categoria === categoryName) 
+                 &&
+                        (store.nome
                             .toLowerCase()
-                            .includes(filter.toLowerCase())) ||
-                    store.endereco.toLowerCase().includes(filter.toLowerCase())
+                            .includes(filter.toLowerCase()) ||
+                    store.endereco.toLowerCase().includes(filter.toLowerCase()))
             );
             setStores(result);
             setLoading(false);

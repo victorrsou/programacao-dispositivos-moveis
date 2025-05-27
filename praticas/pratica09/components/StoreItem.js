@@ -4,7 +4,7 @@ import { List, Text } from "react-native-paper";
 
 import { StoreContext } from "../contexts/StoreContext";
 
-function StoreItem({ item }) {
+function StoreItem() {
     const { stores } = useContext(StoreContext);
 
     return (

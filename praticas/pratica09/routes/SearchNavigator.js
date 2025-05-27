@@ -5,10 +5,12 @@ import StoreScreen from "../screens/StoreScreen";
 const Stack = createNativeStackNavigator();
 
 function SearchNavigator() {
-    <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="Categorias" component={CategoryScreen} />
-        <Stack.Screen name="Lojas" component={StoreScreen} />
-    </Stack.Navigator>;
+    return (
+        <Stack.Navigator screenOptions={{ headerShown: false }}>
+            <Stack.Screen name="Categorias" component={CategoryScreen} />
+            <Stack.Screen name="Lojas" component={StoreScreen} />
+        </Stack.Navigator>
+    );
 }
 
 export default SearchNavigator;
