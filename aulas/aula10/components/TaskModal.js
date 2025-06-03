@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { View } from "react-native";
 import { TextInput, Button } from "react-native-paper";
+import { TaskContext } from "../contexts/TaskContext";
 
 function TaskModal({ setShowModal }) {
+    const { adicionarTarefa } = useContext(TaskContext);
     const [tarefa, setTarefa] = useState("");
 
     return (
@@ -23,7 +25,16 @@ function TaskModal({ setShowModal }) {
             <Button mode="contained" onPress={() => setShowModal(false)}>
                 Adicionar
             </Button>
-            <Button mode="outlined" onPress={() => setShowModal(false)}>
+            <Button
+                mode="outlined"
+                onPress={async () => {
+                    await adicionarTarefa({
+                        descricao: tarefa,
+                        concluida: false,
+                    });
+                    setShowModal(false);
+                }}
+            >
                 Cancelar
             </Button>
         </View>

@@ -11,7 +11,7 @@ function listar() {
 
 function adicionar(tarefa) {
     return axios
-        .post(API_URL)
+        .post(API_URL, tarefa)
         .then((response) => response.data)
         .catch((error) => console.log(error.message));
 }
